@@ -13,8 +13,6 @@ producer = KafkaProducer(
 # clean up the producer
 producer.flush()
 data = get_data()
-print(data)
-producer.send('stock_analytics', data)
-sleep(1)
-print('Done')
-producer.flush()
+# producer.send('stock_analytics', data)
+# sleep(1)
+# producer.flush()

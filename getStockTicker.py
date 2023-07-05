@@ -12,4 +12,4 @@ sorted_data = data.sort_values(by=['Symbol'], ascending=True)
 
 # Convert the dataframe to csv file
 # Index is False as we don't want to write index in csv file
-sorted_data.to_csv('S&P500Tickers.csv', mode='w', index=False) 
+sorted_data.to_csv('./GR1/S&P500Tickers.csv', mode='w', index=False) 

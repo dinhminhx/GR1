@@ -14,8 +14,7 @@ def get_data():
     base_url = "https://api.twelvedata.com/time_series"
     symbols_per_request = 8  # Number of symbols to process in each iteration
     delay = 60  # Delay in seconds between requests
-    
-    with open('S&P500Tickers.csv', 'r') as csvfile:
+    with open('./GR1/S&P500Tickers.csv', 'r') as csvfile:
         csvreader = csv.reader(csvfile)
         next(csvreader)
         symbols = [row[0] for row in csvreader]
@@ -25,6 +24,7 @@ def get_data():
             
             for symbol in symbols_batch:
                 params["symbol"] = symbol
+                
                 response = requests.get(base_url, params=params)
                 if response.status_code == 200:
                     res = response.json()
@@ -35,6 +35,7 @@ def get_data():
                         "values": values
                     }
                     data.append(new_data)
+                    print(new_data)
             
             if i + symbols_per_request < len(symbols):
                 # Delay before making the next request
